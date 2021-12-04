@@ -46,10 +46,7 @@ var MESSAGES = require("Storage").readJSON("messages.json",1)||[];
 if (!Array.isArray(MESSAGES)) MESSAGES=[];
 var onMessagesModified = function(msg) {
   // TODO: if new, show this new one
-  if (msg.new) {
-    if (WIDGETS["messages"]) WIDGETS["messages"].buzz();
-    else Bangle.buzz();
-  }
+  if (msg.new) Bangle.buzz();
   showMessage(msg.id);
 };
 function saveMessages() {
